@@ -579,8 +579,12 @@ jkVoltageMagnitudeMaintenanceViolationDef.scale(j,k)$(not kBase(k) and sum(l$(lk
 * solver options
 pscopf.optfile=0;
 $onecho > knitro.opt
-feastol 1e-10
-opttol 1e-10
+feastol 1e-8
+opttol 1e-4
+maxcgit 10
+ftol 1e-4
+ftol_iters 3
+maxtime_real 60
 $offecho
 
 * solve penalty formulation
@@ -652,7 +656,7 @@ $offtext
 *$ontext
 if(modelStatus = 2,
 penaltyCoeff = 0;
-* pscopf.holdfixed = 1;
+*pscopf.holdfixed = 1;
 solve pscopf using nlp minimizing obj;
 modelStatus = pscopf.modelstat;
 solveStatus = pscopf.solvestat;

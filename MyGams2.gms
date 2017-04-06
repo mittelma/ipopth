@@ -33,4 +33,4 @@ $if not exist pscopf.gms $abort 'missing file "pscopf.gms"'
 *$if not exist pscopf_output_format1.gms $abort 'missing file "pscopf_output_format1.gms"'
 $if not exist pscopf_write_solution.gms $abort 'missing file "pscopf_write_solution.gms"'
 
-$call 'gams pscopf_run.gms --ingms=%case% --soltxt=solution2.txt --nlp=knitro --do_infeas=%do_infeas% --do_bad_output=%do_bad_output% --do_compile_error=%do_compile_error% --do_exec_error=%do_exec_error%'
+$call 'gams pscopf_run.gms --ingms=%case% --soltxt=solution2.txt --nlp=ipopth --do_infeas=%do_infeas% --do_bad_output=%do_bad_output% --do_compile_error=%do_compile_error% --do_exec_error=%do_exec_error%'
